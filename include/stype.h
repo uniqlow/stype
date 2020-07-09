@@ -17,7 +17,14 @@
 #ifndef stype_h
 #define stype_h
 
-#if defined(__LP64__)
+#if defined(__ILP32__) || defined(_ILP32)
+typedef signed char s8;
+typedef unsigned char u8;
+typedef signed short s16;
+typedef unsigned short u16;
+typedef signed int s32;
+typedef unsigned int u32;
+#elif defined(__LP64__) || defined(_LP64)
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;
@@ -26,7 +33,7 @@ typedef signed int s32;
 typedef unsigned int u32;
 typedef signed long s64;
 typedef unsigned long u64;
-#elif defined(_WIN64)
+#elif defined(__LLP64__) || define(_LLP64) || defined(_WIN64)
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;
